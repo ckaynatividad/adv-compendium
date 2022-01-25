@@ -1,6 +1,6 @@
-export async function getNekos() {
+export async function getQuotes() {
   const resp = await fetch(
-    'https://nekos.best/api/v1/nekos'
+    'https://animechan.vercel.app/api/quotes'
   );
   const data = await resp.json();
   return data;
