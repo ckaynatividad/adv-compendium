@@ -1,7 +1,12 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { useState } from 'react';
+import { setupServer } from 'msw/node';
 import Controls from '../components/Controls';
-
 import Makeups from './Makeups';
+import { rest } from 'msw';
+import App from '../App';
+
 
 test('renders loading for list', () => {
   render(<Makeups />);
@@ -9,14 +14,14 @@ test('renders loading for list', () => {
   expect(loading).toBeInTheDocument();
 });
 
-test('filtering renders', () => {
-  render(<Controls />);
+test.only('filtering renders', async () => {
+  render(<App />);
+  
+  const filter = await screen.findByRole('combobox');
+  userEvent.selectOptions(filter, 'pure anada');
+ 
 
-  const filter = screen.getByText(/filter/i);
-  const button = screen.getByRole('button');
-  const brand = screen.queryByText(/colourpop/i);
-
-  expect(filter).toBeInTheDocument();
-  expect(button).toBeInTheDocument();
-  expect(brand).toBeInTheDocument();
+  expect(screen.getByRole('option', { name: 'pure anada' }).selected).toBe(true);
+  
 });
+

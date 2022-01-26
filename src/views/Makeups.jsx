@@ -17,6 +17,8 @@ export default function Makeups() {
     };
     fetchData();
   }, []);
+//
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,9 +34,8 @@ export default function Makeups() {
       {loading ? (
         <p>loading...</p>
       ) : ( 
-        <><Controls setBrand={setBrand} handleSubmit={handleSubmit} />
-          <MakeupsList makeups={makeups} />
-        </>
+        <><Controls setBrand={setBrand} handleSubmit={handleSubmit} /><MakeupsList makeups={makeups} /></>
+    
       )
       }</div>    
     
