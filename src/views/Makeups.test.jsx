@@ -1,10 +1,8 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { useState } from 'react';
-import { setupServer } from 'msw/node';
-import Controls from '../components/Controls';
+
 import Makeups from './Makeups';
-import { rest } from 'msw';
+
 import App from '../App';
 
 test('renders loading for list', () => {
