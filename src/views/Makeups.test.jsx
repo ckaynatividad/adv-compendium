@@ -12,7 +12,6 @@ test('renders loading for list', () => {
 
 test('filtering renders', async () => {
   render(<App />);
-
   const filter = await screen.findByRole('combobox');
   userEvent.selectOptions(filter, 'pure anada');
 
