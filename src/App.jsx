@@ -1,10 +1,8 @@
 
-import { useEffect, useState } from 'react';
+
 import './App.css';
-import Controls from './components/Controls';
-import QuotesList from './components/QuotesList';
-import { getQuotes } from './services/quotes';
-import Quotes from './views/Quotes';
+
+import Makeups from './views/Makeups';
 
 
 function App() {
@@ -13,7 +11,7 @@ function App() {
   return (
     <div>
       <header>makeup</header>
-      <Quotes />
+      <Makeups />
     </div>
     
   );

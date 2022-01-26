@@ -1,11 +1,11 @@
-export async function getQuotes(query) {
+export async function getMakeups(query) {
   const params = new URLSearchParams();
-  params.set('quotes', query);
+  params.set('makeups', query);
   const resp = await fetch(
     'http://makeup-api.herokuapp.com/api/v1/products.json'
   );
   const data = await resp.json();
-  console.log(data);
+ 
   return data;
 }
 

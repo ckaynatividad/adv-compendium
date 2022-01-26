@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Controls from '../components/Controls';
-import QuotesList from '../components/QuotesList';
-import { getQuotes, searchBrands } from '../services/quotes';
+import MakeupsList from '../components/MakeupsList';
+import { getMakeups, searchBrands } from '../services/makeups';
 
-export default function Quotes() {
-  const [quotes, setQuotes] = useState([]);
+export default function Makeups() {
+  const [makeups, setMakeups] = useState([]);
   const [brand, setBrand] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getQuotes();
+      const data = await getMakeups();
       const newData = [...new Set(data)];
-      setQuotes(newData);
+      setMakeups(newData);
       setLoading(false);
     };
     fetchData();
@@ -23,7 +23,7 @@ export default function Quotes() {
     setLoading(true);
     const filterList = await searchBrands(brand);
     const newData = [...new Set(filterList)];
-    setQuotes(newData);
+    setMakeups(newData);
     setLoading(false);
   };
 
@@ -33,7 +33,7 @@ export default function Quotes() {
         <p>loading...</p>
       ) : ( 
         <><Controls setBrand={setBrand} handleSubmit={handleSubmit} />
-          <QuotesList quotes={quotes} />
+          <MakeupsList makeups={makeups} />
         </>
       )
       }</div>    

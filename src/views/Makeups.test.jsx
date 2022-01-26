@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import Controls from '../components/Controls';
 
-import Quotes from './Quotes';
+import Makeups from './Makeups';
 
 test('renders loading for list', () => {
-  render(<Quotes />);
+  render(<Makeups />);
   const loading = screen.getByText(/loading/i);
   expect(loading).toBeInTheDocument();
 });
