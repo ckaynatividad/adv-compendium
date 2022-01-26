@@ -1,16 +1,15 @@
-import { Button, MenuItem, Select, TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import React from 'react';
 
-export default function Controls({ query, setQuery, setLoading, sort, setSort }) {
+export default function Controls({ setBrand, handleSubmit }) {
   return (
     <div>
-      <Select value={sort} onChange={(e) => setSort(e.target.value)}>
-        <MenuItem value="ascending">A-Z</MenuItem>
-        <MenuItem value="descending">Z-A</MenuItem>
-      </Select>
-    
-
-      <Button variant="contained" onClick={() => setLoading(true)}>Go</Button>
+      <label>filter by brand</label>
+      <select onChange={(e) => setBrand(e.target.value)}>
+        <option> </option>
+        <option>colourpop</option>
+      </select>
+      <button onClick={handleSubmit}>go</button>
     </div>
   );
 }
