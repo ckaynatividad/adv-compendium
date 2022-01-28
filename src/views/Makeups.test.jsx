@@ -1,8 +1,6 @@
 import Makeups from './Makeups';
 
-import App from '../App';
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 
 test('renders loading for list', () => {
   render(<Makeups />);
@@ -10,10 +8,14 @@ test('renders loading for list', () => {
   expect(loading).toBeInTheDocument();
 });
 
-test('filtering renders', async () => {
-  render(<App />);
-  const filter = await screen.findByRole('combobox');
-  userEvent.selectOptions(filter, 'pure anada');
+test('should render at least one item on list', async () => {
+  render(<Makeups />);
+  const listItem = await screen.findByText('glossier');
+  expect(listItem).toBeInTheDocument();
+});
 
-  expect(screen.getByRole('option', { name: 'pure anada' }).selected).toBe(true);
+test('should render 12 items on first page', async () => {
+  render(<Makeups />);
+  const listItem = await screen.findAllByRole('heading');
+  expect(listItem).toHaveLength(12);
 });
