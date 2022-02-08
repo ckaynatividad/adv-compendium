@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { MakeupProvider } from './context/MakeupContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MakeupProvider>
+      <App />
+    </MakeupProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
