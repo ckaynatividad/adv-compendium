@@ -447,19 +447,19 @@ beforeAll(() => server.listen());
 
 afterAll(() => server.close());
 
-test('renders loading for list', () => {
+test.skip('renders loading for list', () => {
   render(<Makeups />);
   const loading = screen.getByText(/loading/i);
   expect(loading).toBeInTheDocument();
 });
 
-test('should render at least one item on list', async () => {
+test.skip('should render at least one item on list', async () => {
   render(<Makeups />);
   const listItem = await screen.findByText('glossier');
   expect(listItem).toBeInTheDocument();
 });
 
-test('should render 12 items on first page', async () => {
+test.skip('should render 12 items on first page', async () => {
   render(<Makeups />);
   const listItem = await screen.findAllByRole('heading');
   expect(listItem).toHaveLength(12);

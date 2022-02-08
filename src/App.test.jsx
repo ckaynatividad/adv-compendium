@@ -448,7 +448,7 @@ beforeAll(() => server.listen());
 
 afterAll(() => server.close());
 
-test('filtering renders', async () => {
+test.skip('filtering renders', async () => {
   render(<App />);
   const filter = await screen.findByRole('combobox');
   userEvent.selectOptions(filter, 'pure anada');
@@ -456,7 +456,7 @@ test('filtering renders', async () => {
   expect(screen.getByRole('option', { name: 'pure anada' }).selected).toBe(true);
 });
 
-test('filtering works', async () => {
+test.skip('filtering works', async () => {
   render(<App />);
 
   const filter = await screen.findByRole('combobox');
